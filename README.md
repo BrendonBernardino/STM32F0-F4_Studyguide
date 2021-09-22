@@ -7,6 +7,7 @@
 LSI (Low-Speed Internal clock) - é um clock interno do processador, direcionado para o Watchdog e para o RTC(mas sem precisão para problemas que necessitem da precisaão do relógio). 32768 Khz.
 
 Quando realizamos o cálculo* para ter a resolução do clock do RTC em 1 seg = 1Hz, obtemos 32768 Khz / 32 Khz = 1024, ou seja, não resolve para 1 seg = 1 Hz.
+
 *Comentarei sobre o cálculo de prescalers posteriormente.
 
 LSE (Low-Speed External clock) - é um clock externo vindo de um crystal de 32 Khz. Ideal para o RTC, por sua maior precisão.
