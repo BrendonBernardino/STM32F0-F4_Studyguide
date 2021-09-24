@@ -22,4 +22,25 @@ HSE - é outro clock externo do processador, esse de 8 Mhz ou até 26 Mhz, tamb�
 
 PLL - é uma forma de alcançar clocks maiores, é um multiplicador de frequência de clock. Também pode ser usado para o SysClk.
 
+## UART:
+Vamos supor que você tenha um dispositivo que se comunica através da UART, o dispositivo envia um conjunto de caracteres a cada X segundos. A primeira coisa que se deve pensar é: Como receber esse conjunto de caracteres para que eu possa tratá-lo?
+Bom, existem 3 modos de Receber e Transmitir uma mensagem via UART. 
 
+> Polling, Interrupt, DMA
+
+Primeiro tentaremos receber.
+
+#### Polling
+
+HAL_UART_Receive(&huart, [buffer], [tamanhodobuffer], [timeout]);
+HAL_UART_Transmit(&huart, [buffer], [tamanhodobuffer], [timeout]);
+
+#### Interrupt
+
+HAL_UART_Receive_IT(&huart, [buffer], [tamanhodobuffer]);
+HAL_UART_Transmit_IT(&huart, [buffer], [tamanhodobuffer]);
+
+#### DMA
+
+HAL_UART_Receive_DMA(&huart, [buffer], [tamanhodobuffer]);
+HAL_UART_Transmit_DMA(&huart, [buffer], [tamanhodobuffer]);
