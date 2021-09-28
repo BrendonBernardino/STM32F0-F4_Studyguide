@@ -32,18 +32,52 @@ Primeiro tentaremos receber.
 
 #### Polling
 
+No modo polling o processador fica em modo de espera até que a função seja executada.
+
 HAL_UART_Receive(&huart, [buffer], [tamanhodobuffer], [timeout]);
 
 HAL_UART_Transmit(&huart, [buffer], [tamanhodobuffer], [timeout]);
 
 #### Interrupt
 
+No modo Interrupt, a função roda em paralelo à função principal do processador. Quando o tamanho do buffer é atingido, o callback é acionado - callback é uma função que é chamada toda vez que a interrupção é ativada, no caso ela é ativada quando o tamanho do buffer é alcançado -. Na função de callback é onde podemos tratar a mensagem que foi recebida ou enviada.
+
 HAL_UART_Receive_IT(&huart, [buffer], [tamanhodobuffer]);
 
 HAL_UART_Transmit_IT(&huart, [buffer], [tamanhodobuffer]);
 
+Função que deve ser declarada por você:
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
+
 #### DMA
+
+No modo DMA, temos algo similar ao modo Interrupt. A função também roda em paralelo ao processador, pois usa o DMA (estudaremos o DMA mais a frente). Então existe um callback também quando o tamanho do buffer é alcançado, mas além disso, nesse modo também existe um callback no caso da metade do buffer ser alcançada.
 
 HAL_UART_Receive_DMA(&huart, [buffer], [tamanhodobuffer]);
 
 HAL_UART_Transmit_DMA(&huart, [buffer], [tamanhodobuffer]);
+
+Função que deve ser declarada por você:
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
+
+void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
+
+void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart) {
+  /*Tratamento*/
+}
