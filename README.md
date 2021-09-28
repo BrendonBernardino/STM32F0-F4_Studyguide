@@ -33,14 +33,17 @@ Primeiro tentaremos receber.
 #### Polling
 
 HAL_UART_Receive(&huart, [buffer], [tamanhodobuffer], [timeout]);
+
 HAL_UART_Transmit(&huart, [buffer], [tamanhodobuffer], [timeout]);
 
 #### Interrupt
 
 HAL_UART_Receive_IT(&huart, [buffer], [tamanhodobuffer]);
+
 HAL_UART_Transmit_IT(&huart, [buffer], [tamanhodobuffer]);
 
 #### DMA
 
 HAL_UART_Receive_DMA(&huart, [buffer], [tamanhodobuffer]);
+
 HAL_UART_Transmit_DMA(&huart, [buffer], [tamanhodobuffer]);
