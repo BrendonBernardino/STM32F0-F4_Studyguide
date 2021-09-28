@@ -49,11 +49,15 @@ HAL_UART_Transmit_IT(&huart, [buffer], [tamanhodobuffer]);
 Função que deve ser declarada por você:
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
 
 #### DMA
@@ -67,17 +71,25 @@ HAL_UART_Transmit_DMA(&huart, [buffer], [tamanhodobuffer]);
 Função que deve ser declarada por você:
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
 
 void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
 
 void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart) {
+  
   /*Tratamento*/
+
 }
