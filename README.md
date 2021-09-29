@@ -14,13 +14,16 @@ LSE (Low-Speed External clock) - é um clock externo vindo de um crystal de 32 K
 
 > Obs: O RTC só pode usar as configurações de LSI, LSE e HSE.
 
-HSI - é o clock interno do processador. 16 Mhz. Esse clock é usado para o System Clock (SysClk), ou seja, é o clock que vai para os periféricos. Importante ressaltar que a configuração do SysClk pode vir do HSE ou PLL, não necessariamente virá do HSI.
+HSI (High-Speed Internal clock) - é o clock interno do processador. 16 Mhz. Esse clock é usado para o System Clock (SysClk), ou seja, é o clock que vai para os periféricos. Importante ressaltar que a configuração do SysClk pode vir do HSE ou PLL, não necessariamente virá do HSI.
 
-HSE - é outro clock externo do processador, esse de 8 Mhz ou até 26 Mhz, também pode ser usado para o SysClk.
+HSE (High-Speed External clock) - é outro clock externo do processador, esse de 4 Mhz ou até 26 Mhz, também pode ser usado para o SysClk.
 
 > Optando por configurar o RTC em HSE com 8Mhz, temos que configurar um divisor de 8, para que passe 1Mhz pro RTC e seja possível uma resolução de 1 seg no RTC.
 
-PLL - é uma forma de alcançar clocks maiores, é um multiplicador de frequência de clock. Também pode ser usado para o SysClk.
+PLL (Main phase-locked loop) - é uma forma de alcançar clocks maiores, é um multiplicador de frequência de clock. Também pode ser usado para o SysClk.
+
+![image](https://user-images.githubusercontent.com/47569587/135319810-e5029c85-7286-4245-bb4a-c05dd9339d25.png)
+
 
 ## UART:
 Vamos supor que você tenha um dispositivo que se comunica através da UART, o dispositivo envia um conjunto de caracteres a cada X segundos. A primeira coisa que se deve pensar é: Como receber esse conjunto de caracteres para que eu possa tratá-lo?
